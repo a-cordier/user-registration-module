@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+
+#contentWrapper{
+	margin: auto;
+	width: 100%;
+}
+#register-panel{
+	width: 550px;
+	float: left;
+}
+
+.ui-panel{
+	margin-top: 2px;
+}
+
+.ui-panel-titlebar{
+	color: #ffffff;
+	background-color: #05211E;
+
+}
+
+.submitButton{
+    padding: 6px 11px 7px !important;
+    font-size: 18px !important;
+    background-color: #05211E;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 0px solid #DCDFFF;
+    cursor: pointer;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    position: relative;
+    top: 10px;
+    float: right;
+    
+     
+}
+
