@@ -23,7 +23,7 @@
 - Improve UI
 
 ##### Matching mySQL table
-
+````
 | Field     | Type             | Null | Key | Default | Extra          |
 +-----------+------------------+------+-----+---------+----------------+
 | user_id   | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
@@ -32,4 +32,4 @@
 | avatar    | blob             | YES  |     | NULL    |                |
 | username  | varchar(50)      | YES  |     | NULL    |                |
 | password  | char(64)         | YES  |     | NULL    |                |
-
+````
