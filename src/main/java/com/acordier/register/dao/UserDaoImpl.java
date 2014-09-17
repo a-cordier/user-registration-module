@@ -6,6 +6,7 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -65,13 +66,16 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User findUserByUserName(String username) {
+	public User findByUniqueAttribute(String attributeName, Object attributeValue) {
 		Session session = hibernateTemplate.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
 		try {
 			Criteria criteria = session.createCriteria(User.class);
-			criteria.add(Restrictions.eq("username", username));
+			criteria.add(Restrictions.eq(attributeName, attributeValue));
 			List<?> resultSet = criteria.list();
+			if(resultSet.size()>1){
+				throw new HibernateException("Getting multiple results - Is attribute unique ? ");
+			}
 			return resultSet.isEmpty() ? null : (User) resultSet.get(0);
 		} catch (Exception e) {
 			tx.rollback();
@@ -83,8 +87,4 @@ public class UserDaoImpl implements UserDao {
 		
 	}
 
-	@Override
-	public boolean exists(String username) {
-		return findUserByUserName(username)!=null;
-	}
 }

@@ -1,6 +1,5 @@
 package com.acordier.register.bo;
 
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -11,11 +10,10 @@ import com.acordier.register.model.User;
 public class UserBoImpl implements UserBo {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private UserDao userDao;
-	
-	
+
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
 	}
@@ -37,12 +35,12 @@ public class UserBoImpl implements UserBo {
 
 	@Override
 	public User findUserByUserName(String username) {
-		return userDao.findUserByUserName(username);
+		return userDao.findByUniqueAttribute("username", username);
 	}
 
 	@Override
 	public boolean exists(String username) {
-		return userDao.exists(username);
+		return findUserByUserName(username) != null;
 	}
 
 }
