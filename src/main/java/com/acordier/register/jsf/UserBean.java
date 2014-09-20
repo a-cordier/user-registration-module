@@ -1,10 +1,12 @@
 package com.acordier.register.jsf;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Logger;
+
 
 /* use CDI @SessionScoped, NOT javax.faces.bean.* */
 import javax.enterprise.context.SessionScoped; 
@@ -93,7 +95,16 @@ public class UserBean implements Serializable {
 			logger.severe(e.getLocalizedMessage());
 		}
 		if(avatar!=null){
-			user.setAvatar(avatar.getContents());
+			logger.info("AVATAR FOUND");
+			byte[] avatarBuffer = new byte[safeCastToInt(avatar.getSize())];
+			try {
+				avatar.getInputstream().read(avatarBuffer);
+				user.setAvatar(avatarBuffer);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		/* Persist user */
 		userBo.saveUser(user); 

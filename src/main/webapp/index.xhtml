@@ -2,48 +2,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:h="http://java.sun.com/jsf/html"
-xmlns:f="http://java.sun.com/jsf/core"
-xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
-<title>File upload test</title>
+	<title>File upload test</title>
 </h:head>
 <body>
 	<h:outputStylesheet library="css" name="register.css" />
 	<div id="contentWrapper">
 		<p:panel id="register-panel" header="User registration"
-		styleClass="in-lined">
-		<h:form id="register-form" enctype="multipart/form-data">
-		<fieldset>
-			<legend>
-				<strong>Full name</strong>
-			</legend>
-			<p:inputText id="firstname" required="true"
-			value="#{userBean.firstname}" style="margin-right: 10px;"/>
-			<p:inputText id="lastname" required="true"
-			value="#{userBean.lastname}"  style="margin-left: 10px;"/>
-		</fieldset>
-		<fieldset>
-			<legend>
-				<strong>Username</strong>
-			</legend>
-			<p:inputText id="username" required="true"
-			value="#{userBean.username}"
-			validator="#{usernameValidator.validate}">
-		</p:inputText>
-	</fieldset>
-	<fieldset>
-		<legend>
-			<strong>Password</strong>
-		</legend>
-		<p:password id="password" required="true"
-		value="#{userBean.password}" />
-	</fieldset>
-			<p:fileUpload value="#{userBean.avatar}"  mode="simple"></p:fileUpload>
-			<h:commandButton class="submitButton" value="Submit"
-			action="#{userBean.saveUser}" />
-		</h:form>
-	</p:panel>
-</div>
+			styleClass="in-lined">
+			<h:form id="register-form" enctype="multipart/form-data">
+				<fieldset>
+					<legend>
+						<strong>Full name</strong>
+					</legend>
+					<p:inputText id="firstname" required="true"
+						value="#{userBean.firstname}" style="margin-right: 10px;" />
+					<p:inputText id="lastname" required="true"
+						value="#{userBean.lastname}" style="margin-left: 10px;" />
+				</fieldset>
+				<fieldset>
+					<legend>
+						<strong>Username</strong>
+					</legend>
+					<p:inputText id="username" required="true"
+						value="#{userBean.username}"
+						validator="#{usernameValidator.validate}">
+					</p:inputText>
+				</fieldset>
+				<fieldset>
+					<legend>
+						<strong>Password</strong>
+					</legend>
+					<p:password id="password" required="true"
+						value="#{userBean.password}" />
+				</fieldset>
+				<fieldset>
+					<legend>
+						<strong>Avatar</strong>
+					</legend>
+					<p:fileUpload value="#{userBean.avatar}" mode="simple"></p:fileUpload>
+				</fieldset>
+				<h:commandButton class="submitButton" value="Submit"
+					action="#{userBean.saveUser}" />
+			</h:form>
+		</p:panel>
+	</div>
 </body>
 </html>
