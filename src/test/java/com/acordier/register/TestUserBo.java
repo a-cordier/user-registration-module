@@ -30,6 +30,7 @@ public class TestUserBo extends TestCase {
 	@Test /* should invoke daoTestImpl save method */
 	public void testSaveUser() {
 		User user = new User();
+		user.setUsername("mockito");
 		userBo.saveUser(user); 
 		assertNotNull(userDao.findByUniqueAttribute("username", "mockito"));
 		user.setUsername("mockito-2");

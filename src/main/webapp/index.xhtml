@@ -39,10 +39,7 @@ xmlns:p="http://primefaces.org/ui">
 		<p:password id="password" required="true"
 		value="#{userBean.password}" />
 	</fieldset>
-				<!-- <h:inputFile id="file" value="#{userBean.avatar}" />
-			<h:message for="avatar" style="color: red;" />
-			<p:message for="registerForm" infoStyle="color: green;"
-			errorStyle="color: red;" /> -->
+			<p:fileUpload value="#{userBean.avatar}"  mode="simple"></p:fileUpload>
 			<h:commandButton class="submitButton" value="Submit"
 			action="#{userBean.saveUser}" />
 		</h:form>

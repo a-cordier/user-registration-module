@@ -5,6 +5,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Logger;
+
 /* use CDI @SessionScoped, NOT javax.faces.bean.* */
 import javax.enterprise.context.SessionScoped; 
 import javax.inject.Inject;
@@ -12,6 +13,7 @@ import javax.inject.Named;
 import javax.servlet.http.Part;
 
 import org.apache.commons.codec.binary.Base64;
+import org.primefaces.model.UploadedFile;
 
 import com.acordier.register.bo.UserBo;
 import com.acordier.register.model.User;
@@ -25,7 +27,7 @@ public class UserBean implements Serializable {
 	private String lastname;
 	private String username;
 	private String password;
-	private Part avatar;
+	private UploadedFile avatar;
 
 	@Inject
 	private UserBo userBo;
@@ -64,11 +66,11 @@ public class UserBean implements Serializable {
 		this.password = password;
 	}
 
-	public Part getAvatar() {
+	public UploadedFile getAvatar() {
 		return avatar;
 	}
 
-	public void setAvatar(Part avatar) {
+	public void setAvatar(UploadedFile avatar) {
 		this.avatar = avatar;
 	}
 	/**
@@ -89,6 +91,9 @@ public class UserBean implements Serializable {
 		} catch (UnsupportedEncodingException e) {
 			// TODO VIEW DIALOG
 			logger.severe(e.getLocalizedMessage());
+		}
+		if(avatar!=null){
+			user.setAvatar(avatar.getContents());
 		}
 		/* Persist user */
 		userBo.saveUser(user); 
