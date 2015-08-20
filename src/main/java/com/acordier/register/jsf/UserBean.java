@@ -78,7 +78,7 @@ public class UserBean implements Serializable {
 	/**
 	 * Save user from form input
 	 */
-	public void saveUser() {
+	public String saveUser() {
 		User user = new User();
 		user.setFirstname(firstname);
 		user.setLastname(lastname);
@@ -108,6 +108,7 @@ public class UserBean implements Serializable {
 		}
 		/* Persist user */
 		userBo.saveUser(user); 
+		return "success";
 	}
 
 	/**

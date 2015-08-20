@@ -10,17 +10,10 @@
 - Java 1.7
 - MySQL DB
 
-##### DONE
-
-- Scaffolding layers separation
-- building a basic example view
-- validating username uniqueness
-- hashing password (SHA-256)
 
 ##### TODO
 
-- User avatar persisted as blob
-- Improve UI
+- email validation
 
 ##### Matching mySQL table
 ````

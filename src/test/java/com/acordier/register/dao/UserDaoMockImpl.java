@@ -56,16 +56,13 @@ public class UserDaoMockImpl implements UserDao {
 					return user;
 				}
 			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (NullPointerException e) {
-				
+				/* return null */
 			}
 		}
 		return null;

@@ -9,7 +9,7 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user", catalog = "testdb")
+@Table(name = "user", catalog = "test")
 public class User {
 
 	private Long userId;
